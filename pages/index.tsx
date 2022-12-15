@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Square from "../components/Square";
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
   function handleClick(i: number) {
     if (end === false) {
       if (player === 0) {
-        let newgrid = grid;
+        let newgrid = [...grid];
         if (newgrid[i] === null) {
           newgrid[i] = "X";
           setGrid(newgrid);
@@ -44,7 +44,7 @@ export default function Home() {
           }
         }
       } else if (player === 1) {
-        let newgrid = grid;
+        let newgrid = [...grid];
         if (newgrid[i] === null) {
           newgrid[i] = "O";
           setGrid(newgrid);
